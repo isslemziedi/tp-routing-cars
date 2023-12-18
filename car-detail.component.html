@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .car-details-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.car-details-title {
+  color: #ff4f0f;
+}
+
+.car-details-item {
+  margin-bottom: 10px;
+}
+
+.car-details-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.car-details-link:hover {
+  text-decoration: underline;
+}
+
+.car-not-found {
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+  </style>
+</head>
+<body>
+  <div class="car-details-container" *ngIf="car">
+    <h2 class="car-details-title">Détails de la voiture</h2>
+    <div class="car-details-item">
+      <strong>ID:</strong> {{ car.id }}
+    </div>
+    <div class="car-details-item">
+      <strong>Marque:</strong> {{ car.make }}
+    </div>
+    <div class="car-details-item">
+      <strong>Modèle:</strong> {{ car.model }}
+    </div>
+    <div class="car-details-item">
+      <strong>Année:</strong> {{ car.year }}
+    </div>
+    <div class="car-details-item">
+      <strong>Article:</strong> <a class="car-details-link" href="{{ car.article }}" target="_blank">{{ car.article }}</a>
+    </div>
+  </div>
+  <div class="car-not-found" *ngIf="!car">
+    <p>Voiture non trouvée.</p>
+  </div>
+  
+</body>
+</html>

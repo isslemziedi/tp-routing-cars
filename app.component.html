@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .car-list-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.car-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.details-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.details-button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.details-button:hover {
+  background-color: #0056b3;
+}
+
+  </style>
+</head>
+<body>
+  
+<div class="car-list-container">
+  <ul>
+    <li *ngFor="let car of cars" class="car-item">
+      <span>{{ car.make }} {{ car.model }}</span>
+      <button class="details-button"><a [routerLink]="['/car', car.id]">Details</a></button>
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>
+
+</body>
+</html>
